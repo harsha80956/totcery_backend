@@ -51,9 +51,8 @@ public class UserRepositoryImpl implements UserRepository{
     public User findByEmailAndPassword(String email, String password) throws totAuthException {
         try {
             User user = jdbcTemplate.queryForObject(SQL_FIND_BY_EMAIL, new Object[]{email}, userRowMapper);
-            if (!password.equals(user.getPassword()))
+            if (!BCrypt.checkpw(password, user.getPassword()))
                 throw new totAuthException("Invalid email/password");
-            System.out.print("aaaaaa"+user);
             return user;
         }catch (EmptyResultDataAccessException e){
             throw new totAuthException("Invalid email/password");

@@ -20,9 +20,16 @@ user_type varchar(30) not null
 create table user_address(
 address_id integer primary key not null,
 user_id integer not null,
-
-
+state varchar(20) not null,
+city varchar(20) not null,
+area varchar(50) not null,
+society_name varchar(30) not null,
+respective_block varchar(30) not null,
+flat_number varchar(40) not null,
+parent_address varchar(10)
 );
+alter table user_address add constraint add_users_fk
+foreign key (user_id) references tot_users(user_id)
 
 
 create table products(
