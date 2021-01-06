@@ -25,4 +25,17 @@ public class User {
     public String getPassword(){
         return password;
     }
+    public String getEmail(){
+        return email;
+    }
+    public String getMobileNumber(){
+        return mobileNumber;
+    }
+    public String getUserType(){
+        return userType;
+    }
+    public String getFullName(){
+        return fullName;
+    }
+
 }
